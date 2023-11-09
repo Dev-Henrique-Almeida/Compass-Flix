@@ -1,0 +1,13 @@
+.stack {
+  position: relative;
+  block-size: 100%;
+  inline-size: 100%;
+}
+
+.stack > * {
+  position: absolute;
+}
+
+.align {
+  display: flex;
+}

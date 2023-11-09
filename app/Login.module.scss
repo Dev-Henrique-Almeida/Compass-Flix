@@ -1,0 +1,92 @@
+@import "@/styles/global.scss";
+
+.main {
+  box-sizing: border-box;
+  padding-inline: min(16px, 3vw);
+  block-size: 100%;
+  inline-size: 100%;
+  background-image: url("~@/public/login-mural.png");
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  * {
+    box-sizing: border-box;
+  }
+}
+
+.image {
+  object-fit: cover;
+  object-position: center;
+  block-size: 100%;
+  inline-size: 100%;
+}
+
+.card {
+  max-inline-size: 720px;
+  background-color: #353843c9;
+  backdrop-filter: blur(8px);
+  padding-inline: 32px;
+  padding-block: 32px;
+  display: flex;
+  flex: 1;
+  gap: 24px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card h1 {
+  all: unset;
+  text-align: center;
+  font: $typography-h1;
+  color: $text-high-emphasis;
+}
+
+.card p {
+  all: unset;
+}
+
+.button {
+  font-family: $lato;
+  block-size: 48px;
+  inline-size: 100%;
+  max-inline-size: 375px;
+  text-transform: uppercase;
+  color: $neutral-100;
+  font: $typography-button;
+  border-radius: 4px;
+  cursor: pointer;
+  @include button($primary-300, transparent);
+}
+
+.compass {
+  object-fit: contain;
+  inline-size: 100%;
+  max-inline-size: 330px;
+  block-size: auto;
+}
+
+.card .subtitle {
+  max-width: 280px;
+  text-align: center;
+  color: white;
+  font: $typography-subtitle;
+}
+
+.card .guest {
+  font: $typography-body-small;
+  font-family: $lato;
+  color: #ffffff99;
+}
+
+.guest button {
+  all: unset;
+  cursor: pointer;
+  color: white;
+}
+
+.guestButton:hover {
+  color: gray; 
+}

@@ -1,0 +1,35 @@
+@import "@/styles/global.scss";
+
+.maincontent {
+  overflow: hidden;
+  display: flex;
+  gap: 56px;
+  flex-direction: column;
+  padding-bottom: 5%;
+  p {
+    font-weight: 400;
+    font: $typography-subtitle;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 18px;
+    font-style: normal;
+    line-height: normal;
+  }
+}
+.info {
+  padding-top: 8%;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.title {
+  margin: 0;
+  font-weight: 700;
+  font: $typography-h2;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .maincontent {
+    padding-top: 230px;
+  }
+}
