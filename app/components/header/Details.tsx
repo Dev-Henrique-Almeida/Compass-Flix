@@ -26,7 +26,9 @@ export default function Details({ item, buttons }: Props) {
       <Button
         key="watch"
         Real={Link}
-        href={`/playermedia?id=${item.id}&type=${item.type}`}
+        href={`/playermedia?id=${item.id}&type=${
+          item.type || "movie" || "series"
+        }`}
         passHref
         className={`${styles.button} ${styles.buttonPrimary}`}
         Icon={play}
@@ -38,7 +40,9 @@ export default function Details({ item, buttons }: Props) {
       <Button
         key="trailer"
         Real={Link}
-        href={`/playermedia?id=${item.id}&type=${item.type}`}
+        href={`/playermedia?id=${item.id}&type=${
+          item.type || "movie" || "series"
+        }`}
         passHref
         className={`${styles.button}`}
       >
@@ -49,7 +53,7 @@ export default function Details({ item, buttons }: Props) {
       <Button
         key="info"
         Real={Link}
-        href={`${item.type}/${item.id}`}
+        href={`${item.type || "movie" || "series"}/${item.id}`}
         className={styles.button}
         Icon={info}
       >
