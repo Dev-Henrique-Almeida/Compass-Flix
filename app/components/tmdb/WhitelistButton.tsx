@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 import Button from "../button";
-import icon from "@/public/icons/star.svg";
+import plusIcon from "@/public/icons/plus.svg";
 import doneIcon from "@/public/icons/done_black.svg";
 import styles from "./Button.module.scss";
 
-type Props = {};
-
-export function FavoriteButton() {
+export function WhitelistButton() {
   const [isClicked, setIsClicked] = useState(false);
 
   const toggleClick = () => {
@@ -16,7 +14,7 @@ export function FavoriteButton() {
   return (
     <Button
       onClick={toggleClick}
-      Icon={isClicked ? doneIcon : icon}
+      Icon={isClicked ? doneIcon : plusIcon}
       className={styles.button}
     />
   );

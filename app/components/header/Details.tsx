@@ -68,7 +68,6 @@ export default function Details({ item, buttons }: Props) {
             mediasCollection + " Itens"
           ) : (
             <>
-              {" "}
               {itemRelease ? itemRelease?.slice(0, 4) : mediasCollection} •{" "}
               {itemDuration}
             </>

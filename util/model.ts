@@ -41,14 +41,14 @@ export interface Series extends Media {
   name?: string;
 }
 
-export interface SeriesInfo{
+export interface SeriesInfo {
   id: number;
   number_of_seasons: number;
   seasons: Series[];
   name: string;
 }
 
-export interface Episode{
+export interface Episode {
   id: number;
   name: string;
   still_path: string;
@@ -58,18 +58,18 @@ export interface Episode{
   type: Type;
 }
 
-export interface Person{
+export interface Person {
   id: number;
   name: string;
   profile_path: string;
-  popularity: number;  
+  popularity: number;
 }
 
-export interface Season extends Media{
-  episodes: Episode[],
-  id:number,
+export interface Season extends Media {
+  episodes: Episode[];
+  id: number;
 }
 
-export interface Collection extends Media{
-  parts: Media[],
+export interface Collection extends Media {
+  parts: Media[];
 }

@@ -26,13 +26,13 @@ export class TMDB {
   }
 
   private popularMedia(media: string) {
-    return this.get(`${media}/popular?language=en-US&page=1`).then(
+    return this.get(`${media}/popular?language=pt-BR&page=1`).then(
       (data) => data.results
     );
   }
 
   private trendingMedia(type: string) {
-    return this.get(`trending/${type}/week?language=en-US`).then(
+    return this.get(`trending/${type}/week?language=pt-BR`).then(
       (data) => data.results
     );
   }
@@ -85,7 +85,7 @@ export class TMDB {
   }
 
   async detailedMovie(id: number): Promise<DetailedMedia> {
-    const res = await this.get(`movie/${id}?language=en-US`);
+    const res = await this.get(`movie/${id}?language=pt-BR`);
 
     return {
       ...this.extractCommon(res),
@@ -99,7 +99,7 @@ export class TMDB {
   }
 
   async detailedSeries(id: number): Promise<DetailedMedia> {
-    const res = await this.get(`tv/${id}?language=en-US`);
+    const res = await this.get(`tv/${id}?language=pt-BR`);
     return {
       ...this.extractCommon(res),
       original_name: res.original_name,
@@ -113,7 +113,7 @@ export class TMDB {
 
   async detailedSeason(season: Media): Promise<DetailedMedia> {
     const res = await this.get(
-      `tv/${season.id}/season/${season.season_number}?language=en-US`
+      `tv/${season.id}/season/${season.season_number}?language=pt-BR`
     );
     return {
       ...this.extractCommon(res),
@@ -123,7 +123,7 @@ export class TMDB {
   }
 
   async detailedCollection(id: number): Promise<DetailedMedia> {
-    const res = await this.get(`collection/${id}?language=en-US`);
+    const res = await this.get(`collection/${id}?language=pt-BR`);
     return {
       ...this.extractCommon(res),
       parts: res.parts,
@@ -183,7 +183,7 @@ export class TMDB {
 
   private async getMediaList(type: string, ref: string) {
     const mediadata = await this.get(
-      `${type}/${ref}?language=en-US&page=1`
+      `${type}/${ref}?language=pt-BR&page=1`
     ).then((data) => data.results);
     let typeMedia = "movie";
     if (type === "tv") {
@@ -198,7 +198,7 @@ export class TMDB {
 
   newMedia(path: string) {
     return this.get(
-      `discover/${path}?include_video=true&language=en-US&page=1&sort_by=primary_release_date.desc`
+      `discover/${path}?include_video=true&language=pt-BR&page=1&sort_by=primary_release_date.desc`
     ).then((data) => data.results);
   }
 
@@ -254,7 +254,7 @@ export class TMDB {
   }
 
   async getSerie(id: number) {
-    const res = await this.get(`tv/${id}?language=en-US`);
+    const res = await this.get(`tv/${id}?language=pt-BR`);
     const seriedata: Series = {
       ...this.extractCommon(res),
       number_of_seasons: res.number_of_seasons,
@@ -267,7 +267,7 @@ export class TMDB {
   }
 
   async getCreditsActor(id: number) {
-    const data = await this.get(`person/${id}/combined_credits?language=en-US`);
+    const data = await this.get(`person/${id}/combined_credits?language=pt-BR`);
     const credits = data.cast.map((media: Media) => ({
       ...this.extractCommon(media),
       type: media.media_type === "tv" ? "series" : media.media_type,
@@ -278,7 +278,7 @@ export class TMDB {
   }
 
   async getPeopleList(): Promise<Person[]> {
-    const data = await this.get(`trending/person/week?language=en-US`);
+    const data = await this.get(`trending/person/week?language=pt-BR`);
     const people = data.results.map((person: Person) => ({
       id: person.id,
       name: person.name || "",
@@ -291,7 +291,7 @@ export class TMDB {
   }
 
   async getKeyVideo(id: number, type: string) {
-    return this.get(`${type}/${id}/videos?language=en-US`).then(
+    return this.get(`${type}/${id}/videos?language=pt-BR`).then(
       (data) => data.results
     );
   }
@@ -316,7 +316,7 @@ export class TMDB {
       })))() as Promise<Media[]>;
   }
 
-  async search(type: string, value: string ): Promise<Media[]> {
+  async search(type: string, value: string): Promise<Media[]> {
     switch (type) {
       case "Tudo":
         type = "multi";
@@ -337,7 +337,7 @@ export class TMDB {
 
     const res = (
       await this.get(
-        `search/${type}?query=${value}&include_adult=false&language=en-US&page=1`
+        `search/${type}?query=${value}&include_adult=false&language=pt-BR&page=1`
       )
     ).results;
 

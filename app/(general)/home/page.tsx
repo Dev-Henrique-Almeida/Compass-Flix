@@ -3,7 +3,7 @@ import tmdb from "@/util/tmdb";
 import style from "./Home.module.scss";
 import Carousel from "../../components/carousel";
 import Header from "../../components/header";
-import { Media } from "@/util/model";
+import { DetailedMedia, Media } from "@/util/model";
 
 type Props = {};
 
@@ -17,17 +17,20 @@ export default async function Home({}: Props) {
   const trendingSeries = await tmdb.detailedMediaMultiple(
     await tmdb.topRatedSeries
   );
-  const collection = await (await tmdb.detailedCollection(397842)).parts;
+
+  const collection = (await (
+    await tmdb.detailedCollection(91361)
+  ).parts) as DetailedMedia[];
 
   return (
     <div className={style.maincontent}>
       <Header
-        item={trendingSeries[2]}
+        item={collection[0]}
         autoUpdate
         buttons={["watch", "info", "controls"]}
       />
       <Carousel
-        items={collection as Media[]}
+        items={collection}
         title="Coleções de Hallowen"
         updateBanner
         autoplay={3500}

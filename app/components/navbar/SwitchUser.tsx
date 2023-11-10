@@ -70,14 +70,14 @@ export default function SwitchUser({ isOpen }: Props) {
               width={45}
               height={45}
             />
-            {user.username || "Guest"}
+            {user.username || "Convidado"}
           </button>
         ))}
         <button onClick={softLogout}>
           <div className={styles.addProfile}>
             <Plus />
           </div>
-          Crear perfil
+          Criar perfil
         </button>
         <div className={styles.controls}>
           <button>Editar perfis</button>

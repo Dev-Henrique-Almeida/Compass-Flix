@@ -24,7 +24,8 @@ export default function Header({ item, autoUpdate, buttons }: Props) {
       className={styles.header}
       style={{
         backgroundImage: backgroundImage,
-      }}>
+      }}
+    >
       <div className={styles.gradients}>
         <div></div>
         <div></div>
