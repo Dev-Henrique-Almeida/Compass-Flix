@@ -181,7 +181,7 @@ export class TMDB {
         .slice(0, 20))();
   }
 
-  private async getMediaList(type: string, ref: string) {
+  private async getMediaList(type: string, ref?: string, refId?: number) {
     const mediadata = await this.get(
       `${type}/${ref}?language=pt-BR&page=1`
     ).then((data) => data.results);

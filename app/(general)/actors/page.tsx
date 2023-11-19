@@ -26,10 +26,14 @@ export default async function ActorCredits() {
 
   return (
     <div className={styles.maincontent}>
-      <Header item={await tmdb.detailedMedia(firstActor[randomNumber])} autoUpdate buttons={["watch", "info", "controls"]}/>
+      <Header
+        item={await tmdb.detailedMedia(firstActor[randomNumber])}
+        autoUpdate
+        buttons={["watch", "info", "controls"]}
+      />
       {actorMedias.map((item: Media[], index) => (
         <div key={index} className={styles.content}>
-          <Carousel items={item} title="Conhecido(a) por"/>
+          <Carousel items={item} title="Conhecido(a) por" />
           <div className={styles.actor}>
             <h2>{actors[index].name}</h2>
             <img

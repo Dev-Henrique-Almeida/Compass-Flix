@@ -105,3 +105,12 @@
     color: $primary-100;
   }
 }
+
+@media (max-width: 768px) {
+  .addProfile svg {
+    width: 50px;
+  }
+  .users {
+    padding-inline: 30px;
+  }
+}

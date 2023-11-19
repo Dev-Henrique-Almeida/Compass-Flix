@@ -19,7 +19,7 @@ export default async function Home({}: Props) {
   );
 
   const collection = (await (
-    await tmdb.detailedCollection(91361)
+    await tmdb.detailedCollection(8581)
   ).parts) as DetailedMedia[];
 
   return (

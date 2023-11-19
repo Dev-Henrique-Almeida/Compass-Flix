@@ -1,14 +1,14 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
 import style from "./Episode.module.scss";
-import { Episode } from "@/util/model";
+import { Episode as EpisodeType } from "@/util/model";
 import PlayIcon from "@/public/icons/play.svg";
 import Link from "next/link";
 const BASE_URL = "https://image.tmdb.org/t/p/w500";
 const episodeImageDefault = "/episodedefault.png";
 
 type Props = {
-  episode: Episode;
+  episode: EpisodeType;
 };
 
 export default function Episode(props: Props) {

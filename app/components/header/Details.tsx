@@ -21,6 +21,16 @@ export default function Details({ item, buttons }: Props) {
     ? `${Math.floor(item.runtime / 60)} h ${item.runtime % 60} m`
     : `${item.number_of_episodes && item.number_of_episodes + " Episodes"}`;
 
+  const star = "⭐";
+
+  const formattedVoteAverage = item.vote_average
+    ? `${star} ${item.vote_average.toFixed(1)}/10`
+    : "";
+
+  if (itemDuration == "undefined") {
+    itemDuration = "";
+  }
+
   const buttonElements = {
     watch: (
       <Button
@@ -72,8 +82,9 @@ export default function Details({ item, buttons }: Props) {
             mediasCollection + " Itens"
           ) : (
             <>
-              {itemRelease ? itemRelease?.slice(0, 4) : mediasCollection} •{" "}
-              {itemDuration}
+              {itemRelease ? itemRelease?.slice(0, 4) : mediasCollection}
+              {itemDuration && formattedVoteAverage && " • "}
+              {itemDuration + " • " + formattedVoteAverage}
             </>
           )}
         </p>

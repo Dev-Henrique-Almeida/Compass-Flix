@@ -16,15 +16,19 @@ export default async function Episodelist(props: Props) {
   } as Season;
   const data = await tmdb.detailedMedia(media);
   let notEpisodes = false;
-  if(data.episodes?.length === 0){
+  if (data.episodes?.length === 0) {
     notEpisodes = true;
   }
   return (
     <div className={styles.listcontent}>
-      <h2 className={styles.listitle}>Episodes</h2>
-      {notEpisodes && <h2 className={styles.listitle}>Nenhum Episodio Disponível!</h2>}
+      <h2 className={styles.listitle}>Episódios</h2>
+      {notEpisodes && (
+        <h2 className={styles.listitle}>Nenhum Episodio Disponível!</h2>
+      )}
       <div className={styles.episodelist}>
-        {data && data.episodes && data.episodes.length > 0 &&
+        {data &&
+          data.episodes &&
+          data.episodes.length > 0 &&
           data.episodes.map((item, index) => (
             <Episode key={index} episode={item} />
           ))}
