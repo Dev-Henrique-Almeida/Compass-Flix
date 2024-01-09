@@ -33,7 +33,8 @@ export default function SearchBar({
   return (
     <form
       className={styles.searchbar}
-      onSubmit={(event) => handleSubmit(event)}>
+      onSubmit={(event) => handleSubmit(event)}
+    >
       <input
         aria-label="Buscar por filme, série, ou celebridade"
         name="searchbarinput"
@@ -45,7 +46,8 @@ export default function SearchBar({
           <button
             type="button"
             className={styles.select}
-            onClick={isFilterOpen ? closeFilter : openFilter}>
+            onClick={isFilterOpen ? closeFilter : openFilter}
+          >
             {filter}
             <Caret />
           </button>

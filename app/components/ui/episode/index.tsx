@@ -1,9 +1,9 @@
-/* eslint-disable @next/next/no-img-element */
 import React from "react";
 import style from "./Episode.module.scss";
 import { Episode as EpisodeType } from "@/util/model";
 import PlayIcon from "@/public/icons/play.svg";
 import Link from "next/link";
+
 const BASE_URL = "https://image.tmdb.org/t/p/w500";
 const episodeImageDefault = "/episodedefault.png";
 
@@ -31,7 +31,9 @@ export default function Episode(props: Props) {
     }
     return episodeImageDefault;
   }
+
   const linkplayer = `/playermedia?id=1622&type=tv`;
+
   return (
     <div className={style.card}>
       <Link href={linkplayer}>

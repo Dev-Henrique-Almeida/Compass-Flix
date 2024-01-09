@@ -3,7 +3,7 @@
 import compass from "@/public/compass.png";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./Navbar.module.scss";
 import Navlink from "./Navlink";
 import home from "@/public/icons/home.svg";
@@ -22,6 +22,7 @@ type Props = {};
 
 export default function Navbar({}: Props) {
   const { values, actions } = useLogin();
+  const [isScrolled, setIsScrolled] = useState(false);
   const active = usePathname();
   const router = useRouter();
   const [isSearchOpen, setIsSearchBarOpen] = useState(false);
@@ -56,8 +57,22 @@ export default function Navbar({}: Props) {
     router.replace(`/search?value=${value}&filter=${filter}`);
   }
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const isPageScrolled = window.scrollY > 50;
+      setIsScrolled(isPageScrolled);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <nav className={styles.toplevel}>
+    <nav
+      className={`${styles.toplevel} ${
+        isScrolled ? `${styles.fixed} ${styles.blackBg}` : ""
+      }`}
+    >
       <Link
         href="/home"
         className={`${styles.logo} ${

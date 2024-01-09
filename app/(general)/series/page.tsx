@@ -9,12 +9,12 @@ export default async function page() {
   const popular = await tmdb.detailedMediaMultiple(await tmdb.popularSeries);
   const toprated = await tmdb.detailedMediaMultiple(await tmdb.topRatedSeries);
   const ontheair = await tmdb.detailedMediaMultiple(await tmdb.onTheAirSeries);
-  /*   const topseries = await tmdb.detailedSeries(toprated[0].id); */
+  const topseries = await tmdb.detailedSeries(toprated[0].id);
 
   return (
     <div>
       <Header
-        item={airingtoday[0]}
+        item={topseries}
         autoUpdate={true}
         buttons={["watch", "info", "controls"]}
       />

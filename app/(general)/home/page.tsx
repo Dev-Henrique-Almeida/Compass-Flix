@@ -3,14 +3,13 @@ import tmdb from "@/util/tmdb";
 import style from "./Home.module.scss";
 import Carousel from "../../components/carousel";
 import Header from "../../components/header";
-import { DetailedMedia, Media } from "@/util/model";
+import { Media, DetailedMedia } from "@/util/model";
 
 type Props = {};
 
 export const revalidate = 60;
 
 export default async function Home({}: Props) {
-  const popular = await tmdb.detailedMediaMultiple(await tmdb.trendingMovies);
   const trendingMovies = await tmdb.detailedMediaMultiple(
     await tmdb.trendingMovies
   );
@@ -18,9 +17,19 @@ export default async function Home({}: Props) {
     await tmdb.topRatedSeries
   );
 
-  const collection = (await (
-    await tmdb.detailedCollection(8581)
-  ).parts) as DetailedMedia[];
+  let collection: DetailedMedia[] | null = null;
+  try {
+    const collectionResponse = await tmdb.detailedCollection(91361);
+    if (collectionResponse && collectionResponse.parts) {
+      collection = collectionResponse.parts as DetailedMedia[];
+    }
+  } catch (error) {
+    console.error("Failed to fetch collection:", error);
+  }
+
+  if (!collection || collection.length === 0) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className={style.maincontent}>
@@ -30,13 +39,13 @@ export default async function Home({}: Props) {
         buttons={["watch", "info", "controls"]}
       />
       <Carousel
-        items={collection}
-        title="Coleções de Hallowen"
+        items={collection as Media[]} // If Media is a subset of DetailedMedia, this is safe
+        title="Coleções de Halloween"
         updateBanner
         autoplay={3500}
       />
-      <Carousel items={trendingSeries!} title="Séries em alta" />
-      <Carousel items={trendingMovies} title="Filmes em alta" />
+      <Carousel items={trendingSeries as Media[]} title="Séries em alta" />
+      <Carousel items={trendingMovies as Media[]} title="Filmes em alta" />
     </div>
   );
 }

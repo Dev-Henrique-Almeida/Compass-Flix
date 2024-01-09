@@ -146,7 +146,7 @@ const PlayerControls: React.FC<PlayerControlsProps> = ({
                 <img
                   src="/player_help.png"
                   alt="Ajuda"
-                  style={{ width: "75%" }}
+                  style={{ width: "75%", marginLeft: " 52%" }}
                 />
               </div>
             )}
@@ -193,7 +193,7 @@ const PlayerControls: React.FC<PlayerControlsProps> = ({
                 <img
                   src="/player_episodes.png"
                   alt="Ajuda"
-                  style={{ width: "100%" }}
+                  style={{ width: "100%", marginLeft: " 52%" }}
                 />
               </div>
             )}
@@ -214,7 +214,7 @@ const PlayerControls: React.FC<PlayerControlsProps> = ({
                 <img
                   src="/player_subtitles.png"
                   alt="Ajuda"
-                  style={{ width: "100%" }}
+                  style={{ width: "100%", marginLeft: " 52%" }}
                 />
               </div>
             )}
@@ -235,7 +235,10 @@ const PlayerControls: React.FC<PlayerControlsProps> = ({
                 <img
                   src="/player_expand.png"
                   alt="Ajuda"
-                  style={{ width: "110%", height: "105%", marginLeft: " -55%" }}
+                  style={{
+                    width: "110%",
+                    height: "100%",
+                  }}
                 />
               </div>
             )}

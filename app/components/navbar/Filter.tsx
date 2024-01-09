@@ -13,40 +13,46 @@ export default function Filter({ onSelect, isOpen }: Props) {
   return (
     <dialog
       open={isOpen}
-      className={`${styles.filter} ${isOpen ? styles.filterOpen : ""}`}>
+      className={`${styles.filter} ${isOpen ? styles.filterOpen : ""}`}
+    >
       <button
         type="button"
         onClick={(event) => {
           handleSelect(event);
-        }}>
+        }}
+      >
         Tudo
       </button>
       <button
         type="button"
         onClick={(event) => {
           handleSelect(event);
-        }}>
+        }}
+      >
         Filmes
       </button>
       <button
         type="button"
         onClick={(event) => {
           handleSelect(event);
-        }}>
+        }}
+      >
         Coleções
       </button>
       <button
         type="button"
         onClick={(event) => {
           handleSelect(event);
-        }}>
+        }}
+      >
         Séries
       </button>
       <button
         type="button"
         onClick={(event) => {
           handleSelect(event);
-        }}>
+        }}
+      >
         Celebridades
       </button>
     </dialog>

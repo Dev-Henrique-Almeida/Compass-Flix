@@ -4,7 +4,6 @@ import { Url } from "next/dist/shared/lib/router/router";
 import Link from "next/link";
 import React from "react";
 import styles from "./Navbar.module.scss";
-import { usePathname } from "next/navigation";
 
 type Props = {
   href: Url;
@@ -23,7 +22,8 @@ export default function Navlink({
       href={href}
       className={`${styles.navlink} ${
         current?.startsWith(href.toString()) ? styles.active : ""
-      }`}>
+      }`}
+    >
       {Icon && <Icon />}
       {children}
     </Link>

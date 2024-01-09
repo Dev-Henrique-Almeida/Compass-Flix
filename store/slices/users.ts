@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import tmdb from "@/util/tmdb";
 import { Thunk } from "..";
 
@@ -35,8 +35,6 @@ const initialState: {
   users: [],
   status: status.IDLE,
 };
-
-
 
 function loadUsers(): Thunk {
   return async (dispatch, getState) => {
@@ -180,7 +178,6 @@ const usersSlice = createSlice({
     softLogout: (state) => {
       state.user = undefined;
     },
-    
   },
 });
 

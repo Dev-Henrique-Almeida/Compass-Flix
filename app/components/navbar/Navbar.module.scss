@@ -2,7 +2,7 @@
 
 .toplevel {
   box-sizing: border-box;
-  position: absolute;
+  position: fixed;
   display: flex;
   inline-size: 100%;
   align-items: center;
@@ -18,6 +18,18 @@
   padding-block: 16px;
   max-block-size: 300px;
   gap: 16px 0;
+}
+
+.fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  transition: background-color 0.3s;
+}
+
+.blackBg {
+  background-color: #1a1d29;
 }
 
 .logo {

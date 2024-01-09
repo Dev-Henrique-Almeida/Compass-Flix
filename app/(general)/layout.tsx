@@ -6,7 +6,7 @@ import NavBar from "../components/navbar";
 import Footer from "../components/ui/footer/Footer";
 
 export const metadata: Metadata = {
-  title: "Compass Flix",
+  title: "Compass Video",
 };
 
 export default function RootLayout({ children }: React.PropsWithChildren) {
@@ -14,7 +14,7 @@ export default function RootLayout({ children }: React.PropsWithChildren) {
     <>
       <NavBar />
       {children}
-      <Footer />
+      <Footer/>
     </>
   );
 }

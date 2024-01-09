@@ -14,6 +14,7 @@ const ShowPlayer: React.FC = () => {
   const [videoInfo, setVideoInfo] = useState({ title: "", description: "" });
   const [isFullScreen, setIsFullScreen] = useState(false);
   const searchParams = useSearchParams();
+  const [height, setHeight] = useState("930vh");
   const id = searchParams.get("id");
   const type = searchParams.get("type");
   const [videoKey, setVideoKey] = useState("");
@@ -26,6 +27,23 @@ const ShowPlayer: React.FC = () => {
       setPresentTime(currentRefTime.current);
     }
   };
+
+  const updateHeight = () => {
+    const screenWidth = window.innerWidth;
+    if (screenWidth <= 430) {
+      setHeight("930vh");
+    } else if (screenWidth <= 932) {
+      setHeight("430vh");
+    } else {
+      setHeight("930vh");
+    }
+  };
+
+  useEffect(() => {
+    updateHeight();
+    window.addEventListener("resize", updateHeight);
+    return () => window.removeEventListener("resize", updateHeight);
+  }, []);
 
   useEffect(() => {
     if (player) {
@@ -91,7 +109,7 @@ const ShowPlayer: React.FC = () => {
 
   const opts = {
     width: "100%",
-    height: "866vh",
+    height: height,
     playerVars: {
       controls: 0,
       modestbranding: 1,
