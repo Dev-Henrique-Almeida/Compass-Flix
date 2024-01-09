@@ -30,6 +30,8 @@ Você pode acessar os protótipos navegáveis nos seguintes links:
 <details>
   <summary>Descrição das páginas:</summary>
   <details>
+
+      
   <summary>Login</summary>
   
   - Você precisa usar [métodos de autenticação](https://developer.themoviedb.org/reference/authentication-how-do-i-generate-a-session-id) na API TMDB para lidar com a autenticação/sessão do usuário.
