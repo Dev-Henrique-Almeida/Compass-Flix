@@ -183,3 +183,9 @@ Você pode acessar os protótipos navegáveis nos seguintes links:
     <pre><code>npm run dev</code></pre>
     <li>O servidor estará em execução e você poderá acessar o projeto no seu navegador em <code>http://localhost:3000</code> (ou outro endereço, dependendo das configurações do projeto).</li>
   </ol>
+
+<p>Caso queira apenas ver como se encontra o projeto, siga os passos abaixo:</p>
+  <ol>
+    <li>Você poderá acessar o projeto no seu navegador em <code>http://compass-flix.vercel.app</code></li>
+    <li>Após isso basta entrar como convidado.</li>
+  </ol>
