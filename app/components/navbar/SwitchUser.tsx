@@ -46,7 +46,8 @@ export default function SwitchUser({ isOpen }: Props) {
         "request_token"
       ];
       router.replace(
-        `/login/${requestToken}?redirect_to=http://localhost:3000`
+        `/login/${requestToken}?redirect_to=https://compass-flix.vercel.app/`
+        /* `/login/${requestToken}?redirect_to=http://localhost:3000` */
       );
     } catch (error) {
       console.log(error);
