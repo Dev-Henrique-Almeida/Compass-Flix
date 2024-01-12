@@ -18,7 +18,7 @@ export default function useLogin() {
         "request_token"
       ];
       router.replace(
-        `/login/${requestToken}?redirect_to=https://compass-flix.vercel.app/`
+        `/login/${requestToken}?redirect_to=https://compass-flix.vercel.app/home`
         /* `/login/${requestToken}?redirect_to=http://localhost:3000` */
       );
     } catch (error) {
