@@ -19,7 +19,7 @@ export default async function Home({}: Props) {
 
   let collection: DetailedMedia[] | null = null;
   try {
-    const collectionResponse = await tmdb.detailedCollection(91361);
+    const collectionResponse = await tmdb.detailedCollection(397842);
     if (collectionResponse && collectionResponse.parts) {
       collection = collectionResponse.parts as DetailedMedia[];
     }
@@ -39,7 +39,7 @@ export default async function Home({}: Props) {
         buttons={["watch", "info", "controls"]}
       />
       <Carousel
-        items={collection as Media[]} // If Media is a subset of DetailedMedia, this is safe
+        items={collection as Media[]}
         title="Coleções de Halloween"
         updateBanner
         autoplay={3500}

@@ -4,7 +4,7 @@
   overflow: hidden;
   gap: 2%;
 
-  h2{
+  h2 {
     color: #fff;
     font: bold 20px var(--font-montserrat);
     font-size: 20px;
@@ -14,11 +14,11 @@
   }
 }
 
-.actor{
-    display: flex;
-    justify-items: center;
-    flex-direction: column;
-    align-items: center;
+.actor {
+  display: flex;
+  justify-items: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .content {

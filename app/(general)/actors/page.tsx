@@ -5,6 +5,7 @@ import styles from "./Actors.module.scss";
 import Carousel from "@/app/components/carousel";
 import tmdb from "@/util/tmdb";
 import { Media } from "@/util/model";
+import CarouselActors from "@/app/components/carousel/carousel-actors";
 const defaultImagePoster = "/carouseldefault.png";
 const randomNumber = Math.floor(Math.random() * 19);
 
@@ -26,10 +27,14 @@ export default async function ActorCredits() {
 
   return (
     <div className={styles.maincontent}>
-      <Header item={await tmdb.detailedMedia(firstActor[randomNumber])} autoUpdate buttons={["watch", "info", "controls"]}/>
+      <Header
+        item={await tmdb.detailedMedia(firstActor[randomNumber])}
+        autoUpdate
+        buttons={["watch", "info", "controls"]}
+      />
       {actorMedias.map((item: Media[], index) => (
         <div key={index} className={styles.content}>
-          <Carousel items={item} title="Conhecido(a) por"/>
+          <CarouselActors items={item} title="Conhecido(a) por" />
           <div className={styles.actor}>
             <h2>{actors[index].name}</h2>
             <img

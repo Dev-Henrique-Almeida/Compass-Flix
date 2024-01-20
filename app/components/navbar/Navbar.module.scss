@@ -99,6 +99,10 @@
 }
 
 @media (max-width: 1105px) {
+  .toplevel {
+    position: absolute;
+    max-block-size: none;
+  }
   .navright {
     flex-basis: 100%;
     margin-inline-start: 0;

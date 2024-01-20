@@ -19,7 +19,7 @@ export default function Details({ item, buttons }: Props) {
   let mediasCollection = item.parts?.length;
   let itemDuration = item.runtime
     ? `${Math.floor(item.runtime / 60)} h ${item.runtime % 60} m`
-    : `${item.number_of_episodes && item.number_of_episodes + " Episodes"}`;
+    : `${item.number_of_episodes && item.number_of_episodes + " Episódios"}`;
 
   const star = "⭐";
 

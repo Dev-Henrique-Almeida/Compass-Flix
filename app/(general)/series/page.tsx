@@ -20,14 +20,15 @@ export default async function page() {
       />
       <div className={styles.content}>
         <Carousel
-          items={airingtoday}
-          title="Lançamentos"
+          items={toprated}
+          title="Mais bem avaliados"
           updateBanner
           autoplay={3000}
         />
+
+        <Carousel items={airingtoday} title="Lançamentos" />
         <Carousel items={popular} title="Populares" />
         <Carousel items={ontheair} title="Estão no ar" />
-        <Carousel items={toprated} title="Mais bem avaliados" />
       </div>
     </div>
   );

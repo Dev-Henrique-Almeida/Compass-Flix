@@ -10,7 +10,7 @@ export default async function page() {
   const popular = await tmdb.detailedMediaMultiple(await tmdb.popularMovies);
   const toprated = await tmdb.detailedMediaMultiple(await tmdb.topRatedMovie);
   const ontheair = await tmdb.detailedMediaMultiple(await tmdb.onTheAirMovie);
-  const topmovie = await tmdb.detailedSeries(toprated[0].id);
+  const topmovie = await tmdb.detailedMovie(airingtoday[0].id);
 
   return (
     <div>
@@ -26,17 +26,9 @@ export default async function page() {
           updateBanner
           autoplay={3000}
         />
-        <Carousel
-          items={popular}
-          title="Populares"
-        />
-        <Carousel 
-        items={ontheair} 
-        title="Estão no ar"  />
-        <Carousel
-          items={toprated}
-          title="Mais bem avaliados"
-        />
+        <Carousel items={popular} title="Populares" />
+        <Carousel items={ontheair} title="Estão no ar" />
+        <Carousel items={toprated} title="Mais bem avaliados" />
       </div>
     </div>
   );
