@@ -25,8 +25,8 @@ export default function CarouselActors({
   idSeason,
 }: Props) {
   const carouselRef = useRef(null);
-  const trackRef = useRef<HTMLDivElement>(null);
   const splide = useRef<Splide | undefined>();
+  const trackRef = useRef<HTMLDivElement>(null);
   const [trackSize, setTrackSize] = useState(0);
   const dispatch = useDispatch();
 
