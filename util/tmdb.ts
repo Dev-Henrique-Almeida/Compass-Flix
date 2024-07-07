@@ -6,7 +6,7 @@ export class TMDB {
   headers = {
     accept: "application/json",
     Authorization:
-      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxOTUzYjk2MmY2Nzg2MGY2NjAxMjc4YTE1ZDdjNmVkMSIsInN1YiI6IjY1NDRlODAyNmJlYWVhMDEwYjMyNGVkYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.EWLmbWqxpkl0X_f3SicwD20Jee8zD-jls2pKLq6Qohs",
+      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3Zjk0ZjgwY2ZmMDhlNDNkZGI2NmFlMjU4YjEwZTViMSIsIm5iZiI6MTcyMDM4NjU1OS4xNTcwNjQsInN1YiI6IjY1NDExNDIyNzUxMTBkMDBmZmI1MDdmZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.x6Q5fIZqtJ-uKfBZEPC1G9Q5lf6UcF1HCoEzZP-oDeQ",
   };
 
   private constructor() {}
