@@ -21,9 +21,9 @@ export default function useLogin() {
       const baseUrl = `${window.location.protocol}//${window.location.host}`;
 
       if (baseUrl !== "http://localhost:3000") {
-        router.replace(`/home`);
+        router.push(`${baseUrl}/home`);
       } else {
-        router.replace(`/login/${requestToken}?redirect_to=${baseUrl}`);
+        router.push(`/login/${requestToken}?redirect_to=${baseUrl}`);
       }
     } catch (error) {
       console.log(error);
