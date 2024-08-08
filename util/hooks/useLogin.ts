@@ -19,12 +19,7 @@ export default function useLogin() {
       ];
 
       // Obter a URL base dinamicamente
-      let baseUrl = `${window.location.protocol}//${window.location.host}`;
-
-      // Adicionar "/home" se não for localhost:3000
-      if (window.location.host !== "localhost:3000") {
-        baseUrl += "/home";
-      }
+      const baseUrl = `${window.location.protocol}//${window.location.host}`;
 
       router.replace(`/login/${requestToken}?redirect_to=${baseUrl}`);
     } catch (error) {
