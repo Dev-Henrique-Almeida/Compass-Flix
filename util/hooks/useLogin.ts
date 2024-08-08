@@ -14,10 +14,13 @@ export default function useLogin() {
 
   async function authenticate() {
     try {
-      const requestToken = (await tmdb.get("authentication/token/new"))[
-        "request_token"
-      ];
+      const requestTokenResponse = await tmdb.get("authentication/token/new");
+      console.log("Request Token Response:", requestTokenResponse); // Log do response completo
+
+      const requestToken = requestTokenResponse["request_token"];
+      console.log("Request Token:", requestToken); // Log do request token
       const baseUrl = `${window.location.protocol}//${window.location.host}`;
+      console.log("Base URL:", baseUrl); // Log da base URL
 
       // Verifique se o requestToken foi obtido corretamente
       if (requestToken) {
