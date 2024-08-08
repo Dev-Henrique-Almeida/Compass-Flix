@@ -17,9 +17,11 @@ export default function useLogin() {
       const requestToken = (await tmdb.get("authentication/token/new"))[
         "request_token"
       ];
-      router.replace(
-        `/login/${requestToken}?redirect_to=http://localhost:3000`
-      );
+
+      // Obter a URL base dinamicamente
+      const baseUrl = `${window.location.protocol}//${window.location.host}`;
+
+      router.replace(`/login/${requestToken}?redirect_to=${baseUrl}`);
     } catch (error) {
       console.log(error);
     }
