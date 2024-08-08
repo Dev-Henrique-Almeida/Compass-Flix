@@ -1,5 +1,3 @@
-const { createProxyMiddleware } = require("http-proxy-middleware");
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   webpack(config) {
@@ -27,21 +25,11 @@ const nextConfig = {
       permanent: false,
     },
   ],
-
   images: {
     remotePatterns: [
       { protocol: "https", hostname: "image.tmdb.org", pathname: "/t/p/**" },
       { protocol: "https", hostname: "gravatar.com", pathname: "/avatar/**" },
     ],
-  },
-
-  async rewrites() {
-    return [
-      {
-        source: "/api/tmdb/:path*",
-        destination: "https://api.themoviedb.org/3/:path*",
-      },
-    ];
   },
 };
 

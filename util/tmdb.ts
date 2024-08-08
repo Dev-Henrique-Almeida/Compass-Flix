@@ -2,7 +2,7 @@ import { Media, Series, DetailedMedia, Person } from "./model";
 
 export class TMDB {
   static instance?: TMDB;
-  baseURL = new URL("/api/tmdb/"); // Ajustado para usar o proxy
+  baseURL = new URL("https://api.themoviedb.org/3/");
   headers = {
     accept: "application/json",
     Authorization:
@@ -17,7 +17,7 @@ export class TMDB {
 
   async get(path: string) {
     const url = new URL(path, this.baseURL);
-    const res = await fetch(url.toString(), { headers: this.headers });
+    const res = await fetch(url, { headers: this.headers });
 
     if (!res.ok)
       throw { message: `Could not fetch from ${url}`, status: res.status };
@@ -55,11 +55,12 @@ export class TMDB {
 
   async post(path: string, body: any) {
     const url = new URL(path, this.baseURL);
-    const res = await fetch(url.toString(), {
+    const res = await fetch(url, {
       method: "POST",
       headers: { ...this.headers, "content-type": "application/json" },
       body: JSON.stringify(body),
     });
+    console.log(res.body);
 
     if (!res.ok)
       throw { message: `Could not post to ${url}`, status: res.status };
