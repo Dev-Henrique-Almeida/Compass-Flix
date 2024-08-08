@@ -17,14 +17,12 @@ export default function LoginPage({ searchParams }: Props) {
   const { values, actions, helpers } = useLogin();
 
   useEffect(() => {
-    const requestToken = searchParams["request_token"];
-    const approved = searchParams["approved"];
-
     if (values.user) {
       router.push("/home");
-    } else if (requestToken && approved === "true") {
-      // Se o token for aprovado, faça o login
-      dispatch(actions.login(requestToken as string));
+    } else {
+      if (searchParams["request_token"]) {
+        dispatch(actions.login(searchParams["request_token"] as string));
+      }
     }
   }, [actions, dispatch, router, searchParams, values.user]);
 

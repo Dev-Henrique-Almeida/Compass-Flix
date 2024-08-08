@@ -17,13 +17,16 @@ export default function useLogin() {
       const requestToken = (await tmdb.get("authentication/token/new"))[
         "request_token"
       ];
-
-      // Obter a URL base dinamicamente
       const baseUrl = `${window.location.protocol}//${window.location.host}`;
 
-      router.replace(`/login/${requestToken}?redirect_to=${baseUrl}`);
+      // Verifique se o requestToken foi obtido corretamente
+      if (requestToken) {
+        router.replace(`/login/${requestToken}?redirect_to=${baseUrl}`);
+      } else {
+        throw new Error("Failed to get request token");
+      }
     } catch (error) {
-      console.log(error);
+      console.error("Authentication error:", error);
     }
   }
 
